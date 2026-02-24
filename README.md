@@ -21,7 +21,8 @@
 - [x] Game over + restart
 
 ## Bonus:
-- [x] enemies escape bubble and enter "rage" mode if not popped
+- [x] Enemies escape bubble and enter "rage" mode if not popped
+- [x] After killing 10 enemies heal one heart
 
 ## Notes / known issues:
 Occasionally bubble will shoot on game start (i tried)
