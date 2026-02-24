@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cqj4xclthho2h"]
+
+[ext_resource type="Script" uid="uid://fnjv2vso7nk6" path="res://scripts/enemies.gd" id="1_q4yn1"]
+[ext_resource type="Texture2D" uid="uid://dh3u34tsn1bnx" path="res://assets/images/robot000.png" id="2_ad2ka"]
+[ext_resource type="AudioStream" uid="uid://g865g7aiwx15" path="res://assets/sounds/vanish0.ogg" id="3_ad2ka"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5e8t"]
+size = Vector2(47, 71)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4yn1"]
+size = Vector2(38, 62)
+
+[node name="Enemies" type="CharacterBody2D" unique_id=1462257898 groups=["enemies"]]
+collision_layer = 2
+script = ExtResource("1_q4yn1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=859295835]
+texture = ExtResource("2_ad2ka")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=783042387]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_i5e8t")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1710559849]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=121505495]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_q4yn1")
+
+[node name="RageSound" type="AudioStreamPlayer2D" parent="." unique_id=1523298904]
+stream = ExtResource("3_ad2ka")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
